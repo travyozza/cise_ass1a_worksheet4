@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  Route,
+  NavLink,
+  BrowserRouter as Router,
+  Redirect,
+} from "react-router-dom";
 
 import Home from "./pages/Home";
 import SEPractice from "./pages/SE-Practice";
@@ -12,16 +18,24 @@ const App = () => {
         <h1>Software Practice Empirical Evidence Database (SPEED)</h1>
         <ul className="header">
           <li>
-            <a href="/">Home</a>
+            <NavLink exact to="/">
+              Home
+            </NavLink>
           </li>
           <li>
-            <a href="/SEPractice">Select the Practice</a>
+            <NavLink to="/SEPractice">Select the Practice</NavLink>
           </li>
           <li>
-            <a href="/SubmitArticle">Submit an Article</a>
+            <NavLink to="/SubmitArticle">Submit an Article</NavLink>
           </li>
         </ul>
-        <div className="content"></div>
+        <div className="content">
+          <Route exact path="/" component={Home} />
+          <Route path="/SEPractice" component={SEPractice} />
+          <Route path="/SubmitArticle" component={SubmitArticle} />
+          <Route exact path="/404" component={NotFoundPage} />
+          <Redirect to="/404" />
+        </div>
       </div>
     </Router>
   );

@@ -3,6 +3,7 @@ import Styles from "../components/tablestyle.js";
 import Table from "../components/Evidencetable.js";
 import tablecolumns from "../components/tablecolumns.js";
 import Dropdown from "../components/Dropdown.js";
+import React from "react";
 
 const SEPractice = () => {
   return (
